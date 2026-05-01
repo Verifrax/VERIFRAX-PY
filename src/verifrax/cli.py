@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 from typing import Optional
 
 import typer
-from rich import print
-
 from . import __version__
 from .api import VerifraxClient
+from .api_contract import assert_api_contract
 from .attestations import attestation_status
 from .inspect import inspect_bundle
 from .metadata import package_metadata
@@ -17,6 +17,7 @@ from .verify import verify_path
 
 app = typer.Typer(help="VERIFRAX Python SDK and CLI boundary.")
 api_app = typer.Typer(help="Query VERIFRAX API machine-contract surfaces.")
+api_contract_app = typer.Typer(help="Inspect VERIFRAX API machine-contract documents.")
 receipt_app = typer.Typer(help="Read receipt projections.")
 verdict_app = typer.Typer(help="Read verdict projections.")
 bundle_app = typer.Typer(help="Inspect local bundles.")
@@ -24,6 +25,7 @@ refusal_app = typer.Typer(help="Explain refusal codes.")
 self_app = typer.Typer(help="Inspect this package boundary.")
 
 app.add_typer(api_app, name="api")
+app.add_typer(api_contract_app, name="api-contract")
 app.add_typer(receipt_app, name="receipt")
 app.add_typer(verdict_app, name="verdict")
 app.add_typer(bundle_app, name="bundle")
@@ -32,7 +34,7 @@ app.add_typer(self_app, name="self")
 
 
 def emit(value: object) -> None:
-    print(json.dumps(value, indent=2, sort_keys=True))
+    typer.echo(json.dumps(value, indent=2, sort_keys=True))
 
 
 @app.command()
@@ -138,3 +140,13 @@ def self_metadata() -> None:
 @self_app.command("attest")
 def self_attest() -> None:
     emit(attestation_status())
+
+
+@api_contract_app.command("inspect")
+def api_contract_inspect(path: str) -> None:
+    contract = json.loads(Path(path).read_text(encoding="utf-8"))
+    emit(assert_api_contract(contract))
+
+
+if __name__ == "__main__":
+    app()
