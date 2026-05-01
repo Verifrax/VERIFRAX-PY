@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -18,10 +19,14 @@ def fail(code: str, message: str) -> None:
     raise SystemExit(1)
 
 
-def run(cmd: list[str]) -> str:
+def run(cmd: list[str], extra_env: dict[str, str] | None = None) -> str:
+    env = os.environ.copy()
+    if extra_env:
+        env.update(extra_env)
     return subprocess.run(
         cmd,
         cwd=ROOT,
+        env=env,
         text=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
@@ -86,20 +91,24 @@ def main() -> None:
         fail("TESTPYPI_READINESS_REFUSED", json.dumps(readiness, indent=2))
 
     release_candidate = parse_json(
-        run([sys.executable, "scripts/check-release-candidate-attestation-readiness-boundary.py"]),
+        run(
+            [sys.executable, "scripts/check-release-candidate-attestation-readiness-boundary.py"],
+            {"VERIFRAX_RELEASE_GATE_NO_NESTED": "1"},
+        ),
         "RELEASE_CANDIDATE_GATE_NON_JSON_OUTPUT",
     )
 
     if release_candidate.get("status") != "PASS":
         fail("RELEASE_CANDIDATE_GATE_FAILED", json.dumps(release_candidate, indent=2))
 
-    distribution = parse_json(
-        run([sys.executable, "scripts/check-distribution-installation-replay-proof.py"]),
-        "DISTRIBUTION_REPLAY_GATE_NON_JSON_OUTPUT",
-    )
+    if os.environ.get("VERIFRAX_RELEASE_GATE_NO_NESTED") != "1":
+        distribution = parse_json(
+            run([sys.executable, "scripts/check-distribution-installation-replay-proof.py"]),
+            "DISTRIBUTION_REPLAY_GATE_NON_JSON_OUTPUT",
+        )
 
-    if distribution.get("status") != "PASS":
-        fail("DISTRIBUTION_REPLAY_GATE_FAILED", json.dumps(distribution, indent=2))
+        if distribution.get("status") != "PASS":
+            fail("DISTRIBUTION_REPLAY_GATE_FAILED", json.dumps(distribution, indent=2))
 
     print(json.dumps({
         "status": "PASS",
