@@ -25,7 +25,11 @@
     "api_machine_contract_replay_required": true,
     "testpypi_pending_trusted_publisher_required": true,
     "pypi_pending_trusted_publisher_required": true,
-    "do_not_publish_without_testpypi_live_rehearsal_proof": true
+    "do_not_publish_without_testpypi_live_rehearsal_proof": true,
+    "production_pypi_publish_deadman_required": true,
+    "production_pypi_publish_authorization_required": true,
+    "testpypi_live_rehearsal_proof_required": true,
+    "production_publish_default_refuse": true
   },
   "forbidden": [
     "manual_password_publish",
@@ -51,6 +55,14 @@
       "workflow": "pypi-publish.yml",
       "environment": "pypi",
       "pending_trusted_publisher_required": true
+    },
+    "production_publish_default": "REFUSE",
+    "production_publish_deadman": {
+      "authorization_check": "scripts/check-production-pypi-publish-authorization-boundary.py",
+      "deadman_check": "scripts/check-production-pypi-publish-deadman-boundary.py",
+      "policy": "PRODUCTION_PYPI_PUBLISH_AUTHORIZATION_POLICY.json",
+      "required_authorization": "PYPI_PRODUCTION_PUBLISH_AUTHORIZATION.json",
+      "required_testpypi_live_rehearsal_proof": "evidence/testpypi-live-rehearsal/TESTPYPI_LIVE_REHEARSAL_PROOF.json"
     }
   }
 }

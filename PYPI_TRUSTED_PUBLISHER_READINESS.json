@@ -39,6 +39,18 @@
     "environment_claims_bound": true,
     "release_closure_required": true,
     "testpypi_rehearsal_required_before_production": true,
-    "no_long_lived_token_required": true
+    "no_long_lived_token_required": true,
+    "production_publish_deadman_required": true,
+    "production_pypi_publish_authorization_required": true,
+    "testpypi_live_rehearsal_proof_required": true,
+    "production_publish_default_refuse": true
+  },
+  "production_publish_deadman": {
+    "status": "ACTIVE",
+    "policy": "PRODUCTION_PYPI_PUBLISH_AUTHORIZATION_POLICY.json",
+    "authorization_check": "scripts/check-production-pypi-publish-authorization-boundary.py",
+    "deadman_check": "scripts/check-production-pypi-publish-deadman-boundary.py",
+    "publish_default": "REFUSE",
+    "do_not_publish": true
   }
 }

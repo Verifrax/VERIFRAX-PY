@@ -113,6 +113,14 @@ def main() -> None:
         "python scripts/check-v010-release-admissibility-closure-boundary.py",
     ])
 
+    for required_path in [
+        "PRODUCTION_PYPI_PUBLISH_AUTHORIZATION_POLICY.json",
+        "scripts/check-production-pypi-publish-authorization-boundary.py",
+        "scripts/check-production-pypi-publish-deadman-boundary.py",
+    ]:
+        if not (ROOT / required_path).exists():
+            fail("PRODUCTION_DEADMAN_REQUIRED_FILE_MISSING", required_path)
+
     custody = load_json("PYPI_CUSTODY.json")
     readiness = custody.get("trusted_publisher_readiness", {})
     if readiness.get("status") != "DECLARED_NOT_PUBLISHED":
@@ -126,6 +134,10 @@ def main() -> None:
         "testpypi_pending_trusted_publisher_required",
         "pypi_pending_trusted_publisher_required",
         "do_not_publish_without_testpypi_live_rehearsal_proof",
+        "production_pypi_publish_deadman_required",
+        "production_pypi_publish_authorization_required",
+        "testpypi_live_rehearsal_proof_required",
+        "production_publish_default_refuse",
     ]:
         if requirements.get(key) is not True:
             fail("CUSTODY_REQUIREMENT_MISSING", key)
@@ -137,6 +149,14 @@ def main() -> None:
 
     if closure.get("status") != "PASS":
         fail("V010_CLOSURE_NOT_PASSING", json.dumps(closure, indent=2))
+
+    deadman = run_json_gate(
+        [sys.executable, "scripts/check-production-pypi-publish-deadman-boundary.py"],
+        "PRODUCTION_DEADMAN_NON_JSON_OUTPUT",
+    )
+
+    if deadman.get("status") != "PASS":
+        fail("PRODUCTION_DEADMAN_NOT_PASSING", json.dumps(deadman, indent=2))
 
     print(json.dumps({
         "status": "PASS",
@@ -158,7 +178,9 @@ def main() -> None:
             "environment": "pypi"
         },
         "repo_side_ready": True,
-        "external_publishers_still_manual": True
+        "external_publishers_still_manual": True,
+        "production_publish_deadman_active": True,
+        "production_publish_default": "REFUSE"
     }, indent=2))
 
 
