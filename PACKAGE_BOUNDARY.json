@@ -1,0 +1,18 @@
+{
+  "schema": "verifrax.python.package-boundary.v1",
+  "status": "ACTIVE_BOUNDARY",
+  "distribution": "verifrax",
+  "import_name": "verifrax",
+  "cli": "verifrax",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "license": "Apache-2.0",
+  "package_truth_subordinate": true,
+  "not_sovereignty": true,
+  "forbidden_inferences": [
+    "package_publication_proves_truth",
+    "package_installation_proves_authority",
+    "package_metadata_overrides_repo_truth",
+    "python_sdk_decides_terminal_recognition",
+    "python_sdk_assigns_terminal_recourse"
+  ]
+}

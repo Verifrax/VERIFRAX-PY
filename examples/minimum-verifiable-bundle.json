@@ -1,0 +1,8 @@
+{
+  "claim_class": "example",
+  "law_version": "example-law-v1",
+  "accepted_epoch": "example-epoch",
+  "verification_result": {
+    "status": "EXAMPLE_ONLY"
+  }
+}

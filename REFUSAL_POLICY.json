@@ -3,17 +3,65 @@
   "status": "ACTIVE_BOUNDARY",
   "default_behavior": "REFUSE_UNLESS_OBJECT_CHAIN_SUFFICIENT",
   "refusals": [
-    "UNSUPPORTED_CLAIM_CLASS",
-    "MISSING_LAW_VERSION",
-    "MISSING_ACCEPTED_EPOCH",
-    "MISSING_AUTHORITY_OBJECT",
-    "MISSING_EXECUTION_RECEIPT",
-    "MISSING_VERIFICATION_RESULT",
-    "MISSING_RECOGNITION_OBJECT",
-    "MISSING_RECOURSE_OBJECT",
-    "HOST_ROLE_MISMATCH",
-    "SOURCE_REPO_MISMATCH",
-    "PYPI_ATTESTATION_MISSING",
-    "OBJECT_CHAIN_INCOMPLETE"
+    {
+      "code": "UNSUPPORTED_CLAIM_CLASS",
+      "severity": "BLOCKING",
+      "meaning": "The inspected claim class is not admitted by this package boundary."
+    },
+    {
+      "code": "MISSING_LAW_VERSION",
+      "severity": "BLOCKING",
+      "meaning": "No governing law version was available."
+    },
+    {
+      "code": "MISSING_ACCEPTED_EPOCH",
+      "severity": "BLOCKING",
+      "meaning": "No accepted epoch or accepted state was available."
+    },
+    {
+      "code": "MISSING_AUTHORITY_OBJECT",
+      "severity": "BLOCKING",
+      "meaning": "No authority object was available."
+    },
+    {
+      "code": "MISSING_EXECUTION_RECEIPT",
+      "severity": "BLOCKING",
+      "meaning": "No execution receipt was available."
+    },
+    {
+      "code": "MISSING_VERIFICATION_RESULT",
+      "severity": "BLOCKING",
+      "meaning": "No verification result was available."
+    },
+    {
+      "code": "MISSING_RECOGNITION_OBJECT",
+      "severity": "NON_TERMINAL",
+      "meaning": "Terminal recognition cannot be inferred from verification alone."
+    },
+    {
+      "code": "MISSING_RECOURSE_OBJECT",
+      "severity": "NON_TERMINAL",
+      "meaning": "Terminal recourse cannot be inferred from recognition absence."
+    },
+    {
+      "code": "HOST_ROLE_MISMATCH",
+      "severity": "BLOCKING",
+      "meaning": "A host or route did not match its declared role."
+    },
+    {
+      "code": "SOURCE_REPO_MISMATCH",
+      "severity": "BLOCKING",
+      "meaning": "The package source binding does not match the admitted repo."
+    },
+    {
+      "code": "PYPI_ATTESTATION_MISSING",
+      "severity": "BLOCKING",
+      "meaning": "Required PyPI publish attestation was not available."
+    },
+    {
+      "code": "OBJECT_CHAIN_INCOMPLETE",
+      "severity": "BLOCKING",
+      "meaning": "The object chain is incomplete."
+    }
   ]
 }
