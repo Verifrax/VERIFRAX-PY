@@ -12,6 +12,7 @@ from .attestations import attestation_status
 from .inspect import inspect_bundle
 from .metadata import package_metadata
 from .policy import PACKAGE_BOUNDARY
+from .projections import inspect_receipt_projection, inspect_verdict_projection
 from .refusal import Refusal, refusal_codes
 from .verify import verify_path
 
@@ -111,9 +112,25 @@ def receipt_get(receipt_id: str, base_url: Optional[str] = None) -> None:
     emit(VerifraxClient(base_url or "https://api.verifrax.net").receipt(receipt_id))
 
 
+
+
+@receipt_app.command("inspect")
+def receipt_inspect(path: str) -> None:
+    projection = json.loads(Path(path).read_text(encoding="utf-8"))
+    emit(inspect_receipt_projection(projection))
+
+
 @verdict_app.command("get")
 def verdict_get(verdict_id: str, base_url: Optional[str] = None) -> None:
     emit(VerifraxClient(base_url or "https://api.verifrax.net").verdict(verdict_id))
+
+
+
+
+@verdict_app.command("inspect")
+def verdict_inspect(path: str) -> None:
+    projection = json.loads(Path(path).read_text(encoding="utf-8"))
+    emit(inspect_verdict_projection(projection))
 
 
 @bundle_app.command("inspect")

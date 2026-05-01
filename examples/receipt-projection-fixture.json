@@ -1,0 +1,22 @@
+{
+  "schema": "verifrax.receipt-projection.v1",
+  "projection_type": "EXECUTION_RECEIPT_PROJECTION",
+  "receipt_id": "receipt-example-001",
+  "source_repo": "Verifrax/CORPIFORM",
+  "api_boundary": "Verifrax/VERIFRAX-API",
+  "package_boundary": "Verifrax/VERIFRAX-PY",
+  "authority_object": {
+    "id": "authority-example-001",
+    "scope": "example-only"
+  },
+  "execution": {
+    "status": "EXECUTED",
+    "runtime": "example-runtime",
+    "receipt_emitted": true
+  },
+  "verification_hint": {
+    "verifier": "Verifrax/VERIFRAX-verify",
+    "terminal_recognition": false,
+    "terminal_recourse": false
+  }
+}

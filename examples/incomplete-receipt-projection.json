@@ -1,0 +1,6 @@
+{
+  "schema": "verifrax.receipt-projection.v1",
+  "projection_type": "EXECUTION_RECEIPT_PROJECTION",
+  "receipt_id": "",
+  "source_repo": "Verifrax/CORPIFORM"
+}
