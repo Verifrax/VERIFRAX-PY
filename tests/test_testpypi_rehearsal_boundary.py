@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from verifrax.testpypi import testpypi_rehearsal_readiness
+from verifrax.testpypi import testpypi_rehearsal_readiness as read_testpypi_rehearsal_readiness
 
 
 def test_testpypi_rehearsal_manifest():
@@ -14,7 +14,7 @@ def test_testpypi_rehearsal_manifest():
 
 
 def test_testpypi_rehearsal_readiness_passes():
-    result = testpypi_rehearsal_readiness()
+    result = read_testpypi_rehearsal_readiness()
     assert result["status"] == "PASS"
     assert result["accepted"] is True
     assert result["blocking_refusals"] == []
