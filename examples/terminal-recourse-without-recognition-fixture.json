@@ -1,0 +1,12 @@
+{
+  "schema": "verifrax.terminal-recourse.v1",
+  "projection_type": "TERMINAL_RECOURSE_PROJECTION",
+  "recourse_id": "recourse-without-recognition-example-001",
+  "source_repo": "Verifrax/REGRESSORIUM",
+  "api_boundary": "Verifrax/VERIFRAX-API",
+  "package_boundary": "Verifrax/VERIFRAX-PY",
+  "recourse_object": {
+    "id": "recourse-object-example-001",
+    "closure_state": "example-only"
+  }
+}

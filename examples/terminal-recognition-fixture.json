@@ -1,0 +1,13 @@
+{
+  "schema": "verifrax.terminal-recognition.v1",
+  "projection_type": "TERMINAL_RECOGNITION_PROJECTION",
+  "recognition_id": "recognition-example-001",
+  "source_repo": "Verifrax/ANAGNORIUM",
+  "api_boundary": "Verifrax/VERIFRAX-API",
+  "package_boundary": "Verifrax/VERIFRAX-PY",
+  "recognition_object": {
+    "id": "recognition-object-example-001",
+    "recognized_truth": "example-only-terminal-recognition"
+  },
+  "recourse_boundary": "NOT_TERMINAL_RECOURSE"
+}

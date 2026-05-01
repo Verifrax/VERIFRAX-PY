@@ -14,6 +14,7 @@ from .metadata import package_metadata
 from .policy import PACKAGE_BOUNDARY
 from .projections import inspect_receipt_projection, inspect_verdict_projection
 from .refusal import Refusal, refusal_codes
+from .terminal import inspect_terminal_boundary
 from .verify import verify_path
 
 app = typer.Typer(help="VERIFRAX Python SDK and CLI boundary.")
@@ -24,6 +25,7 @@ verdict_app = typer.Typer(help="Read verdict projections.")
 bundle_app = typer.Typer(help="Inspect local bundles.")
 refusal_app = typer.Typer(help="Explain refusal codes.")
 self_app = typer.Typer(help="Inspect this package boundary.")
+terminal_app = typer.Typer(help="Inspect terminal recognition and recourse boundaries.")
 
 app.add_typer(api_app, name="api")
 app.add_typer(api_contract_app, name="api-contract")
@@ -32,6 +34,7 @@ app.add_typer(verdict_app, name="verdict")
 app.add_typer(bundle_app, name="bundle")
 app.add_typer(refusal_app, name="refusal")
 app.add_typer(self_app, name="self")
+app.add_typer(terminal_app, name="terminal")
 
 
 def emit(value: object) -> None:
@@ -163,6 +166,12 @@ def self_attest() -> None:
 def api_contract_inspect(path: str) -> None:
     contract = json.loads(Path(path).read_text(encoding="utf-8"))
     emit(assert_api_contract(contract))
+
+
+@terminal_app.command("inspect")
+def terminal_inspect(path: str) -> None:
+    obj = json.loads(Path(path).read_text(encoding="utf-8"))
+    emit(inspect_terminal_boundary(obj))
 
 
 if __name__ == "__main__":

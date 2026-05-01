@@ -1,0 +1,29 @@
+{
+  "schema": "verifrax.python.terminal-boundary.v1",
+  "status": "ACTIVE_BOUNDARY",
+  "package": "verifrax",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "rule": "VERIFICATION_IS_NOT_TERMINAL_RECOGNITION_OR_TERMINAL_RECOURSE",
+  "verification_boundary": {
+    "repo": "Verifrax/VERIFRAX",
+    "may_verify": true,
+    "may_recognize_terminal_truth": false,
+    "may_assign_terminal_recourse": false
+  },
+  "terminal_recognition_boundary": {
+    "repo": "Verifrax/ANAGNORIUM",
+    "required_object": "recognition_object"
+  },
+  "terminal_recourse_boundary": {
+    "repo": "Verifrax/REGRESSORIUM",
+    "required_object": "recourse_object",
+    "requires_prior_recognition_object": true
+  },
+  "refusal_codes": [
+    "TERMINAL_RECOGNITION_OVERCLAIM",
+    "TERMINAL_RECOURSE_OVERCLAIM",
+    "RECOURSE_WITHOUT_RECOGNITION",
+    "VERIFICATION_IS_NOT_RECOGNITION",
+    "VERIFICATION_IS_NOT_RECOURSE"
+  ]
+}
