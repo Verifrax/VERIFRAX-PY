@@ -1,0 +1,13 @@
+{
+  "schema": "verifrax.python.source-bindings.v1",
+  "status": "ACTIVE_BOUNDARY",
+  "repo": "Verifrax/VERIFRAX-PY",
+  "distribution": "verifrax",
+  "bindings": {
+    "authored_protocol_boundary": "Verifrax/VERIFRAX",
+    "api_contract_boundary": "Verifrax/VERIFRAX-API",
+    "public_verifier_boundary": "Verifrax/VERIFRAX-verify",
+    "proof_publication_boundary": "Verifrax/proof",
+    "archive_reference_boundary": "Verifrax/SIGILLARIUM"
+  }
+}

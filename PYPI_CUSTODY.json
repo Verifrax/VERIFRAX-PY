@@ -1,0 +1,20 @@
+{
+  "schema": "verifrax.python.pypi-custody.v1",
+  "status": "ACTIVE_BOUNDARY",
+  "pypi_project": "verifrax",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "publisher": {
+    "method": "pypi-trusted-publishing",
+    "oidc_provider": "github-actions",
+    "workflow": ".github/workflows/pypi-publish.yml",
+    "environment": "pypi"
+  },
+  "forbidden": [
+    "manual_password_publish",
+    "long_lived_token_publish",
+    "unattested_release",
+    "source_repo_mismatch",
+    "empty_namespace_reservation",
+    "sovereign_chamber_distribution"
+  ]
+}

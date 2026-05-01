@@ -1,0 +1,14 @@
+{
+  "schema": "verifrax.repo-admission.v1",
+  "status": "ACTIVE_BOUNDARY",
+  "repo": "Verifrax/VERIFRAX-PY",
+  "class": "implementation-package-python-boundary",
+  "primary_role": "python-sdk-cli-interface",
+  "sovereign_chamber": false,
+  "truth_owner": false,
+  "host_default": false,
+  "package_default": true,
+  "distribution_surfaces": {
+    "pypi": "verifrax"
+  }
+}
