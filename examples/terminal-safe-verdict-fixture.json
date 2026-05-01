@@ -1,0 +1,15 @@
+{
+  "schema": "verifrax.verdict-projection.v1",
+  "projection_type": "VERIFICATION_VERDICT_PROJECTION",
+  "verdict_id": "verdict-terminal-safe-001",
+  "source_repo": "Verifrax/VERIFRAX",
+  "api_boundary": "Verifrax/VERIFRAX-API",
+  "package_boundary": "Verifrax/VERIFRAX-PY",
+  "verification_result": {
+    "status": "PASS",
+    "deterministic": true,
+    "replayable": true
+  },
+  "recognition_boundary": "NOT_TERMINAL_RECOGNITION",
+  "recourse_boundary": "NOT_TERMINAL_RECOURSE"
+}
