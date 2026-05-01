@@ -1,0 +1,25 @@
+name: pypi-release-gate
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pypi-release-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e ".[test,build]"
+      - run: pytest
+      - run: verifrax doctor
+      - run: verifrax sources
+      - run: verifrax policy
+      - run: verifrax refusal explain PYPI_ATTESTATION_MISSING
+      - run: python scripts/check-pypi-custody-attestation-release-gate.py
