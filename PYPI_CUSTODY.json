@@ -22,7 +22,10 @@
     "pytest_warning_free_required": true,
     "terminal_nonrecognition_nonrecourse_guard_required": true,
     "receipt_verdict_projection_replay_required": true,
-    "api_machine_contract_replay_required": true
+    "api_machine_contract_replay_required": true,
+    "testpypi_pending_trusted_publisher_required": true,
+    "pypi_pending_trusted_publisher_required": true,
+    "do_not_publish_without_testpypi_live_rehearsal_proof": true
   },
   "forbidden": [
     "manual_password_publish",
@@ -31,5 +34,23 @@
     "source_repo_mismatch",
     "empty_namespace_reservation",
     "sovereign_chamber_distribution"
-  ]
+  ],
+  "trusted_publisher_readiness": {
+    "status": "DECLARED_NOT_PUBLISHED",
+    "do_not_publish": true,
+    "testpypi": {
+      "owner": "Verifrax",
+      "repository": "VERIFRAX-PY",
+      "workflow": "testpypi-publish.yml",
+      "environment": "testpypi",
+      "pending_trusted_publisher_required": true
+    },
+    "pypi": {
+      "owner": "Verifrax",
+      "repository": "VERIFRAX-PY",
+      "workflow": "pypi-publish.yml",
+      "environment": "pypi",
+      "pending_trusted_publisher_required": true
+    }
+  }
 }

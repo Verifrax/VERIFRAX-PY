@@ -1,15 +1,14 @@
 name: pypi-publish
 
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
 
 permissions:
   contents: read
   id-token: write
 
 jobs:
-  publish:
+  pypi-publish:
     runs-on: ubuntu-latest
     environment: pypi
     steps:
@@ -19,6 +18,11 @@ jobs:
           python-version: "3.12"
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e ".[test,build]"
-      - run: pytest
+      - run: pytest -q
+      - run: python scripts/check-v010-release-admissibility-closure-boundary.py
+      - run: python scripts/check-pypi-trusted-publisher-readiness-seal.py
+      - run: python scripts/check-testpypi-rehearsal-attestation-boundary.py
+      - run: python scripts/check-pypi-custody-attestation-release-gate.py
+      - run: python scripts/check-distribution-installation-replay-proof.py
       - run: python -m build
       - uses: pypa/gh-action-pypi-publish@release/v1

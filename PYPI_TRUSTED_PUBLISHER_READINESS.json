@@ -1,0 +1,44 @@
+{
+  "schema": "verifrax.python.pypi-trusted-publisher-readiness.v1",
+  "status": "READY_CONFIGURATION_DECLARED",
+  "package": "verifrax",
+  "version": "0.1.0",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "do_not_publish": true,
+  "production_publish_blocked_until_external_trusted_publishers_exist": true,
+  "testpypi": {
+    "project_name": "verifrax",
+    "owner": "Verifrax",
+    "repository": "VERIFRAX-PY",
+    "workflow_filename": "testpypi-publish.yml",
+    "environment": "testpypi",
+    "oidc_sub": "repo:Verifrax/VERIFRAX-PY:environment:testpypi",
+    "expected_workflow_ref": "Verifrax/VERIFRAX-PY/.github/workflows/testpypi-publish.yml@refs/heads/main",
+    "repository_url": "https://test.pypi.org/legacy/",
+    "pending_trusted_publisher_required": true
+  },
+  "pypi": {
+    "project_name": "verifrax",
+    "owner": "Verifrax",
+    "repository": "VERIFRAX-PY",
+    "workflow_filename": "pypi-publish.yml",
+    "environment": "pypi",
+    "oidc_sub": "repo:Verifrax/VERIFRAX-PY:environment:pypi",
+    "expected_workflow_ref": "Verifrax/VERIFRAX-PY/.github/workflows/pypi-publish.yml@refs/heads/main",
+    "repository_url": "https://upload.pypi.org/legacy/",
+    "pending_trusted_publisher_required": true
+  },
+  "required_external_actions": [
+    "Create TestPyPI pending trusted publisher with owner=Verifrax, repository=VERIFRAX-PY, workflow=testpypi-publish.yml, environment=testpypi.",
+    "Create PyPI pending trusted publisher with owner=Verifrax, repository=VERIFRAX-PY, workflow=pypi-publish.yml, environment=pypi.",
+    "Do not dispatch pypi-publish.yml until TestPyPI install proof has been recorded."
+  ],
+  "repo_side_guarantee": {
+    "workflows_declared": true,
+    "oidc_permissions_required": true,
+    "environment_claims_bound": true,
+    "release_closure_required": true,
+    "testpypi_rehearsal_required_before_production": true,
+    "no_long_lived_token_required": true
+  }
+}
