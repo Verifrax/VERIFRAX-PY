@@ -1,0 +1,44 @@
+{
+  "schema": "verifrax.python.production-pypi-publish-authorization-policy.v1",
+  "status": "ACTIVE_DEADMAN_BOUNDARY",
+  "package": "verifrax",
+  "version": "0.1.0",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "do_not_publish": true,
+  "production_publish_default": "REFUSE",
+  "authorization_file": "PYPI_PRODUCTION_PUBLISH_AUTHORIZATION.json",
+  "authorization_file_committed": false,
+  "required_before_publish": [
+    "PYPI_TRUSTED_PUBLISHER_READINESS_SEAL",
+    "V010_RELEASE_ADMISSIBILITY_CLOSURE_BOUNDARY",
+    "TESTPYPI_LIVE_REHEARSAL_PROOF_BOUNDARY",
+    "PYPI_PRODUCTION_PUBLISH_AUTHORIZATION"
+  ],
+  "required_testpypi_live_rehearsal_proof": {
+    "path": "evidence/testpypi-live-rehearsal/TESTPYPI_LIVE_REHEARSAL_PROOF.json",
+    "installed_from_testpypi": true,
+    "trusted_publishing_rehearsal": true,
+    "version": "0.1.0",
+    "source_repo": "Verifrax/VERIFRAX-PY"
+  },
+  "production_publish_authorization_requirements": {
+    "publish_allowed": true,
+    "do_not_publish": false,
+    "package": "verifrax",
+    "version": "0.1.0",
+    "source_repo": "Verifrax/VERIFRAX-PY",
+    "target": "pypi",
+    "workflow": "pypi-publish.yml",
+    "environment": "pypi",
+    "testpypi_live_rehearsal_proof_required": true,
+    "testpypi_live_rehearsal_proof_path": "evidence/testpypi-live-rehearsal/TESTPYPI_LIVE_REHEARSAL_PROOF.json"
+  },
+  "refusal_codes": [
+    "PRODUCTION_PYPI_AUTHORIZATION_MISSING",
+    "PRODUCTION_PYPI_PUBLISH_NOT_ALLOWED",
+    "PRODUCTION_PYPI_DO_NOT_PUBLISH_ACTIVE",
+    "TESTPYPI_LIVE_REHEARSAL_PROOF_MISSING",
+    "TESTPYPI_LIVE_REHEARSAL_PROOF_INVALID",
+    "PRODUCTION_PYPI_AUTHORIZATION_MISMATCH"
+  ]
+}
