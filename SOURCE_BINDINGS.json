@@ -9,5 +9,16 @@
     "public_verifier_boundary": "Verifrax/VERIFRAX-verify",
     "proof_publication_boundary": "Verifrax/proof",
     "archive_reference_boundary": "Verifrax/SIGILLARIUM"
+  },
+  "non_bindings": {
+    "law": "SYNTAGMARIUM",
+    "state": "ORBISTIUM",
+    "reconciliation": "CONSONORIUM",
+    "cognition": "TACHYRIUM",
+    "authority": "AUCTORISEAL",
+    "execution": "CORPIFORM",
+    "recognition": "ANAGNORIUM",
+    "recourse": "REGRESSORIUM",
+    "admissibility_enforcement": "ADMISSORIUM"
   }
 }

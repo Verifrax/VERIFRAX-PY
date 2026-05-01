@@ -9,6 +9,16 @@
     "workflow": ".github/workflows/pypi-publish.yml",
     "environment": "pypi"
   },
+  "release_requirements": {
+    "trusted_publishing_required": true,
+    "attestation_required": true,
+    "sdist_required": true,
+    "wheel_required": true,
+    "testpypi_rehearsal_required": true,
+    "refusal_tests_required": true,
+    "source_binding_check_required": true,
+    "cli_smoke_required": true
+  },
   "forbidden": [
     "manual_password_publish",
     "long_lived_token_publish",

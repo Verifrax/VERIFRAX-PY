@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Verifrax/VERIFRAX-PY/schemas/object-chain.schema.json",
+  "title": "VERIFRAX Object Chain Bundle",
+  "type": "object",
+  "properties": {
+    "claim_class": {
+      "type": "string"
+    },
+    "law_version": {
+      "type": "string"
+    },
+    "accepted_epoch": {
+      "type": "string"
+    },
+    "authority_object": {
+      "type": [
+        "object",
+        "string"
+      ]
+    },
+    "execution_receipt": {
+      "type": [
+        "object",
+        "string"
+      ]
+    },
+    "verification_result": {
+      "type": [
+        "object",
+        "string"
+      ]
+    },
+    "recognition_object": {
+      "type": [
+        "object",
+        "string"
+      ]
+    },
+    "recourse_object": {
+      "type": [
+        "object",
+        "string"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

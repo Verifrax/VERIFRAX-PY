@@ -1,79 +1,140 @@
+from __future__ import annotations
+
 import json
+from typing import Optional
+
 import typer
 from rich import print
 
 from . import __version__
 from .api import VerifraxClient
+from .attestations import attestation_status
 from .inspect import inspect_bundle
-from .refusal import Refusal
+from .metadata import package_metadata
+from .policy import PACKAGE_BOUNDARY
+from .refusal import Refusal, refusal_codes
 from .verify import verify_path
 
-app = typer.Typer()
-api_app = typer.Typer()
-bundle_app = typer.Typer()
-refusal_app = typer.Typer()
+app = typer.Typer(help="VERIFRAX Python SDK and CLI boundary.")
+api_app = typer.Typer(help="Query VERIFRAX API machine-contract surfaces.")
+receipt_app = typer.Typer(help="Read receipt projections.")
+verdict_app = typer.Typer(help="Read verdict projections.")
+bundle_app = typer.Typer(help="Inspect local bundles.")
+refusal_app = typer.Typer(help="Explain refusal codes.")
+self_app = typer.Typer(help="Inspect this package boundary.")
 
 app.add_typer(api_app, name="api")
+app.add_typer(receipt_app, name="receipt")
+app.add_typer(verdict_app, name="verdict")
 app.add_typer(bundle_app, name="bundle")
 app.add_typer(refusal_app, name="refusal")
+app.add_typer(self_app, name="self")
 
 
-def emit(value):
+def emit(value: object) -> None:
     print(json.dumps(value, indent=2, sort_keys=True))
 
 
 @app.command()
-def doctor():
+def doctor() -> None:
     emit({
         "package": "verifrax",
         "version": __version__,
         "boundary": "python-sdk-cli-implementation",
+        "repo": "Verifrax/VERIFRAX-PY",
         "sovereign_chamber": False,
         "truth_owner": False,
-        "status": "OK"
+        "status": "OK",
     })
 
 
 @app.command()
-def sources():
+def sources() -> None:
     emit({
         "repo": "Verifrax/VERIFRAX-PY",
         "distribution": "verifrax",
-        "bindings": ["Verifrax/VERIFRAX", "Verifrax/VERIFRAX-API", "Verifrax/VERIFRAX-verify"]
+        "bindings": [
+            "Verifrax/VERIFRAX",
+            "Verifrax/VERIFRAX-API",
+            "Verifrax/VERIFRAX-verify",
+            "Verifrax/proof",
+            "Verifrax/SIGILLARIUM"
+        ],
+        "non_bindings": [
+            "SYNTAGMARIUM",
+            "ORBISTIUM",
+            "CONSONORIUM",
+            "TACHYRIUM",
+            "AUCTORISEAL",
+            "CORPIFORM",
+            "ANAGNORIUM",
+            "REGRESSORIUM",
+            "ADMISSORIUM"
+        ]
     })
 
 
 @app.command()
-def verify(path: str):
+def policy() -> None:
+    emit(PACKAGE_BOUNDARY)
+
+
+@app.command()
+def verify(path: str) -> None:
     emit(verify_path(path))
 
 
 @api_app.command("health")
-def api_health():
-    emit(VerifraxClient().health())
+def api_health(base_url: Optional[str] = None) -> None:
+    emit(VerifraxClient(base_url or "https://api.verifrax.net").health())
 
 
 @api_app.command("ready")
-def api_ready():
-    emit(VerifraxClient().ready())
+def api_ready(base_url: Optional[str] = None) -> None:
+    emit(VerifraxClient(base_url or "https://api.verifrax.net").ready())
 
 
 @api_app.command("version")
-def api_version():
-    emit(VerifraxClient().version())
+def api_version(base_url: Optional[str] = None) -> None:
+    emit(VerifraxClient(base_url or "https://api.verifrax.net").version())
 
 
 @api_app.command("openapi")
-def api_openapi():
-    emit(VerifraxClient().openapi())
+def api_openapi(base_url: Optional[str] = None) -> None:
+    emit(VerifraxClient(base_url or "https://api.verifrax.net").openapi())
+
+
+@receipt_app.command("get")
+def receipt_get(receipt_id: str, base_url: Optional[str] = None) -> None:
+    emit(VerifraxClient(base_url or "https://api.verifrax.net").receipt(receipt_id))
+
+
+@verdict_app.command("get")
+def verdict_get(verdict_id: str, base_url: Optional[str] = None) -> None:
+    emit(VerifraxClient(base_url or "https://api.verifrax.net").verdict(verdict_id))
 
 
 @bundle_app.command("inspect")
-def bundle_inspect(path: str):
+def bundle_inspect(path: str) -> None:
     emit(inspect_bundle(path))
 
 
+@refusal_app.command("list")
+def refusal_list() -> None:
+    emit({"refusals": refusal_codes()})
+
+
 @refusal_app.command("explain")
-def refusal_explain(code: str):
-    r = Refusal.explain(code)
-    emit({"code": r.code.value, "meaning": r.meaning})
+def refusal_explain(code: str) -> None:
+    refusal = Refusal.explain(code)
+    emit({"code": refusal.code.value, "meaning": refusal.meaning, "severity": refusal.severity})
+
+
+@self_app.command("metadata")
+def self_metadata() -> None:
+    emit(package_metadata() | {"source_repo": "Verifrax/VERIFRAX-PY"})
+
+
+@self_app.command("attest")
+def self_attest() -> None:
+    emit(attestation_status())
