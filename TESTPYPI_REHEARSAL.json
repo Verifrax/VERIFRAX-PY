@@ -27,5 +27,13 @@
     "package_truth_overclaim",
     "terminal_recognition_overclaim",
     "terminal_recourse_overclaim"
-  ]
+  ],
+  "pending_trusted_publisher": {
+    "owner": "Verifrax",
+    "repository": "VERIFRAX-PY",
+    "workflow": "testpypi-publish.yml",
+    "environment": "testpypi",
+    "oidc_sub": "repo:Verifrax/VERIFRAX-PY:environment:testpypi"
+  },
+  "do_not_publish_production": true
 }
