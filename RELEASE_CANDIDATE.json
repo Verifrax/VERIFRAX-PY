@@ -1,0 +1,32 @@
+{
+  "schema": "verifrax.python.release-candidate.v1",
+  "status": "ACTIVE_RELEASE_CANDIDATE_BOUNDARY",
+  "package": "verifrax",
+  "version": "0.1.0",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "release_target": {
+    "pypi_project": "verifrax",
+    "tag": "v0.1.0",
+    "trusted_publishing_required": true,
+    "attestation_required": true,
+    "wheel_required": true,
+    "sdist_required": true
+  },
+  "required_gates": [
+    "API_MACHINE_CONTRACT_REPLAY_BOUNDARY",
+    "RECEIPT_VERDICT_PROJECTION_REPLAY_BOUNDARY",
+    "TERMINAL_NONRECOGNITION_NONRECOURSE_GUARD",
+    "PYPI_CUSTODY_ATTESTATION_RELEASE_GATE",
+    "DISTRIBUTION_INSTALLATION_REPLAY_PROOF"
+  ],
+  "forbidden_release_states": [
+    "UNATTESTED_PUBLISH",
+    "TOKEN_BASED_PUBLISH",
+    "SOURCE_REPO_MISMATCH",
+    "WHEEL_ONLY_RELEASE",
+    "SDIST_ONLY_RELEASE",
+    "TERMINAL_RECOGNITION_OVERCLAIM",
+    "TERMINAL_RECOURSE_OVERCLAIM"
+  ],
+  "release_law": "No release candidate is admissible unless all local gates pass from source, wheel, and sdist, and the package remains non-sovereign, non-truth-owning, non-recognition, and non-recourse."
+}

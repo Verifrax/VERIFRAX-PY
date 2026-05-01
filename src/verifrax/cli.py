@@ -14,6 +14,7 @@ from .metadata import package_metadata
 from .policy import PACKAGE_BOUNDARY
 from .projections import inspect_receipt_projection, inspect_verdict_projection
 from .refusal import Refusal, refusal_codes
+from .release import release_readiness
 from .terminal import inspect_terminal_boundary
 from .verify import verify_path
 
@@ -166,6 +167,11 @@ def self_attest() -> None:
 def api_contract_inspect(path: str) -> None:
     contract = json.loads(Path(path).read_text(encoding="utf-8"))
     emit(assert_api_contract(contract))
+
+
+@self_app.command("release-readiness")
+def self_release_readiness() -> None:
+    emit(release_readiness())
 
 
 @terminal_app.command("inspect")
