@@ -17,7 +17,10 @@
     "RECEIPT_VERDICT_PROJECTION_REPLAY_BOUNDARY",
     "TERMINAL_NONRECOGNITION_NONRECOURSE_GUARD",
     "PYPI_CUSTODY_ATTESTATION_RELEASE_GATE",
-    "DISTRIBUTION_INSTALLATION_REPLAY_PROOF"
+    "DISTRIBUTION_INSTALLATION_REPLAY_PROOF",
+    "RELEASE_CANDIDATE_ATTESTATION_READINESS_BOUNDARY",
+    "TESTPYPI_REHEARSAL_ATTESTATION_BOUNDARY",
+    "PYTEST_WARNING_FREE_RELEASE_GATE"
   ],
   "forbidden_release_states": [
     "UNATTESTED_PUBLISH",
@@ -28,5 +31,5 @@
     "TERMINAL_RECOGNITION_OVERCLAIM",
     "TERMINAL_RECOURSE_OVERCLAIM"
   ],
-  "release_law": "No release candidate is admissible unless all local gates pass from source, wheel, and sdist, and the package remains non-sovereign, non-truth-owning, non-recognition, and non-recourse."
+  "release_law": "No v0.1.0 release candidate is admissible unless API contract replay, receipt/verdict projection replay, terminal nonrecognition/nonrecourse guard, PyPI custody attestation, wheel/sdist installation replay, release candidate readiness, TestPyPI rehearsal, and warning-free pytest gates all pass while the package remains non-sovereign, non-truth-owning, non-recognition, and non-recourse."
 }

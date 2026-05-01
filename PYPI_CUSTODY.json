@@ -17,7 +17,12 @@
     "testpypi_rehearsal_required": true,
     "refusal_tests_required": true,
     "source_binding_check_required": true,
-    "cli_smoke_required": true
+    "cli_smoke_required": true,
+    "release_candidate_readiness_required": true,
+    "pytest_warning_free_required": true,
+    "terminal_nonrecognition_nonrecourse_guard_required": true,
+    "receipt_verdict_projection_replay_required": true,
+    "api_machine_contract_replay_required": true
   },
   "forbidden": [
     "manual_password_publish",
