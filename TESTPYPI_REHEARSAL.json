@@ -1,0 +1,31 @@
+{
+  "schema": "verifrax.python.testpypi-rehearsal.v1",
+  "status": "ACTIVE_REHEARSAL_BOUNDARY",
+  "package": "verifrax",
+  "version": "0.1.0",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "testpypi_project": "verifrax",
+  "purpose": "Prove publish rehearsal custody before PyPI production release.",
+  "publisher": {
+    "method": "pypi-trusted-publishing",
+    "oidc_provider": "github-actions",
+    "workflow": ".github/workflows/testpypi-publish.yml",
+    "environment": "testpypi"
+  },
+  "required_before_production_pypi": true,
+  "required_gates": [
+    "RELEASE_CANDIDATE_ATTESTATION_READINESS_BOUNDARY",
+    "PYPI_CUSTODY_ATTESTATION_RELEASE_GATE",
+    "DISTRIBUTION_INSTALLATION_REPLAY_PROOF"
+  ],
+  "forbidden": [
+    "production_publish_without_testpypi_rehearsal",
+    "manual_password_publish",
+    "long_lived_token_publish",
+    "unattested_rehearsal",
+    "source_repo_mismatch",
+    "package_truth_overclaim",
+    "terminal_recognition_overclaim",
+    "terminal_recourse_overclaim"
+  ]
+}

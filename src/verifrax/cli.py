@@ -16,6 +16,7 @@ from .projections import inspect_receipt_projection, inspect_verdict_projection
 from .refusal import Refusal, refusal_codes
 from .release import release_readiness
 from .terminal import inspect_terminal_boundary
+from .testpypi import testpypi_rehearsal_readiness
 from .verify import verify_path
 
 app = typer.Typer(help="VERIFRAX Python SDK and CLI boundary.")
@@ -172,6 +173,11 @@ def api_contract_inspect(path: str) -> None:
 @self_app.command("release-readiness")
 def self_release_readiness() -> None:
     emit(release_readiness())
+
+
+@self_app.command("testpypi-readiness")
+def self_testpypi_readiness() -> None:
+    emit(testpypi_rehearsal_readiness())
 
 
 @terminal_app.command("inspect")
