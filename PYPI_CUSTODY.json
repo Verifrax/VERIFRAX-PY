@@ -29,7 +29,8 @@
     "production_pypi_publish_deadman_required": true,
     "production_pypi_publish_authorization_required": true,
     "testpypi_live_rehearsal_proof_required": true,
-    "production_publish_default_refuse": true
+    "production_publish_default_refuse": true,
+    "external_trusted_publisher_claim_lock_required": true
   },
   "forbidden": [
     "manual_password_publish",
@@ -63,6 +64,10 @@
       "policy": "PRODUCTION_PYPI_PUBLISH_AUTHORIZATION_POLICY.json",
       "required_authorization": "PYPI_PRODUCTION_PUBLISH_AUTHORIZATION.json",
       "required_testpypi_live_rehearsal_proof": "evidence/testpypi-live-rehearsal/TESTPYPI_LIVE_REHEARSAL_PROOF.json"
+    },
+    "external_claim_lock": {
+      "path": "EXTERNAL_TRUSTED_PUBLISHER_CLAIMS.json",
+      "gate": "scripts/check-external-trusted-publisher-claim-lock-boundary.py"
     }
   }
 }
