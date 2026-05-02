@@ -31,5 +31,11 @@
     "TERMINAL_RECOGNITION_OVERCLAIM",
     "TERMINAL_RECOURSE_OVERCLAIM"
   ],
-  "release_law": "No v0.1.0 release candidate is admissible unless API contract replay, receipt/verdict projection replay, terminal nonrecognition/nonrecourse guard, PyPI custody attestation, wheel/sdist installation replay, release candidate readiness, TestPyPI rehearsal, and warning-free pytest gates all pass while the package remains non-sovereign, non-truth-owning, non-recognition, and non-recourse."
+  "release_law": "No v0.1.0 release candidate is admissible unless API contract replay, receipt/verdict projection replay, terminal nonrecognition/nonrecourse guard, PyPI custody attestation, wheel/sdist installation replay, release candidate readiness, TestPyPI rehearsal, and warning-free pytest gates all pass while the package remains non-sovereign, non-truth-owning, non-recognition, and non-recourse.",
+  "release_artifact_digest_replay_boundary": {
+    "status": "REQUIRED",
+    "gate": "scripts/check-release-artifact-digest-replay-boundary.py",
+    "policy": "RELEASE_ARTIFACT_DIGEST_BOUNDARY.json",
+    "do_not_publish": true
+  }
 }

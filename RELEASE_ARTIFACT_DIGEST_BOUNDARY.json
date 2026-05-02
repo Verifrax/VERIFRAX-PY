@@ -1,0 +1,25 @@
+{
+  "schema": "verifrax.python.release-artifact-digest-boundary.v1",
+  "status": "NO_PUBLISH_ARTIFACT_REPLAY_REQUIRED",
+  "package": "verifrax",
+  "version": "0.1.0",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "do_not_publish": true,
+  "artifact_types": [
+    "wheel",
+    "sdist"
+  ],
+  "required_artifact_checks": [
+    "build_from_current_source",
+    "single_wheel",
+    "single_sdist",
+    "sha256_digest_computed",
+    "wheel_metadata_name_version_match",
+    "sdist_contains_pyproject",
+    "sdist_contains_package_source",
+    "no_publish_executed"
+  ],
+  "publish_default": "REFUSE",
+  "external_publishers_required": true,
+  "production_authorization_required": true
+}
