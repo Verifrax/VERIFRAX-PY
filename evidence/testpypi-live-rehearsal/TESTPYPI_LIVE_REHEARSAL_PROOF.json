@@ -1,0 +1,22 @@
+{
+  "schema": "verifrax.python.testpypi-live-rehearsal-proof.v1",
+  "status": "PASS",
+  "index": "testpypi",
+  "package": "verifrax",
+  "testpypi_project": "verifrax",
+  "version": "0.1.0",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "installed_from_testpypi": true,
+  "trusted_publishing_rehearsal": true,
+  "import_verified": true,
+  "files": [
+    "verifrax-0.1.0-py3-none-any.whl",
+    "verifrax-0.1.0.tar.gz"
+  ],
+  "production_publish_admissibility_input": true,
+  "production_publish_admissible_after_testpypi_rehearsal": true,
+  "workflow_run_url": "https://github.com/Verifrax/VERIFRAX-PY/actions/runs/25249495725",
+  "workflow_run_id": 25249495725,
+  "workflow": "testpypi-publish.yml",
+  "workflow_conclusion": "success"
+}
