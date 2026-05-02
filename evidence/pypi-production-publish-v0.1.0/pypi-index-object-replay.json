@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "gate": "PRODUCTION_PYPI_INDEX_OBJECT_REPLAY",
+  "package": "verifrax",
+  "version": "0.1.0",
+  "project_url": "https://pypi.org/project/verifrax/0.1.0/",
+  "files": [
+    {
+      "filename": "verifrax-0.1.0-py3-none-any.whl",
+      "packagetype": "bdist_wheel",
+      "sha256": "5139065b0c4f3738bff6252f72bd2615b59efb9ad356d1e875311cb1d5ac5701",
+      "url": "https://files.pythonhosted.org/packages/a9/07/f3df26b37f0a1b75e9ebf4bf557aa2d6d67db7da2470989f70a4a5c82497/verifrax-0.1.0-py3-none-any.whl"
+    },
+    {
+      "filename": "verifrax-0.1.0.tar.gz",
+      "packagetype": "sdist",
+      "sha256": "9a7675917708bbadcc740c4a078ed41c3642593eb9993db2dc60243da66ff3bd",
+      "url": "https://files.pythonhosted.org/packages/f1/57/fa948d6c673ae720b51c019bdee8c06bdf885ed0addc36fb7b0303a2f99b/verifrax-0.1.0.tar.gz"
+    }
+  ]
+}

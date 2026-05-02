@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "gate": "PRODUCTION_PYPI_EXTERNAL_INSTALL_REPLAY",
+  "package": "verifrax",
+  "version": "0.1.0",
+  "files": 37
+}

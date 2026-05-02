@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "gate": "PRODUCTION_PYPI_V010_SEAL",
+  "package": "verifrax",
+  "version": "0.1.0",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "head": "7e78934af2144a4f9277a447417805e19cecee53",
+  "publish_run_id": "25250130554",
+  "publish_run_url": "https://github.com/Verifrax/VERIFRAX-PY/actions/runs/25250130554",
+  "pypi_project_url": "https://pypi.org/project/verifrax/0.1.0/",
+  "production_publish": "DONE",
+  "production_external_install_replay": "DONE",
+  "version_immutability": "SEALED",
+  "do_not_rerun_same_version_publish": true
+}
