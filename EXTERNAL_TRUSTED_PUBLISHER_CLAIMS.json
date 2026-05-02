@@ -1,0 +1,52 @@
+{
+  "schema": "verifrax.python.external-trusted-publisher-claims.v1",
+  "status": "EXTERNAL_MANUAL_CONFIGURATION_REQUIRED",
+  "package": "verifrax",
+  "version": "0.1.0",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "do_not_publish": true,
+  "claim_lock_active": true,
+  "testpypi": {
+    "publisher_type": "pending_trusted_publisher",
+    "project_name": "verifrax",
+    "owner": "Verifrax",
+    "repository": "VERIFRAX-PY",
+    "workflow_filename": "testpypi-publish.yml",
+    "environment": "testpypi",
+    "expected_sub": "repo:Verifrax/VERIFRAX-PY:environment:testpypi",
+    "expected_repository": "Verifrax/VERIFRAX-PY",
+    "expected_repository_owner": "Verifrax",
+    "expected_workflow_ref": "Verifrax/VERIFRAX-PY/.github/workflows/testpypi-publish.yml@refs/heads/main",
+    "expected_ref": "refs/heads/main",
+    "expected_environment": "testpypi",
+    "publish_workflow": ".github/workflows/testpypi-publish.yml",
+    "publish_repository_url": "https://test.pypi.org/legacy/",
+    "live_rehearsal_required": true
+  },
+  "pypi": {
+    "publisher_type": "pending_trusted_publisher",
+    "project_name": "verifrax",
+    "owner": "Verifrax",
+    "repository": "VERIFRAX-PY",
+    "workflow_filename": "pypi-publish.yml",
+    "environment": "pypi",
+    "expected_sub": "repo:Verifrax/VERIFRAX-PY:environment:pypi",
+    "expected_repository": "Verifrax/VERIFRAX-PY",
+    "expected_repository_owner": "Verifrax",
+    "expected_workflow_ref": "Verifrax/VERIFRAX-PY/.github/workflows/pypi-publish.yml@refs/heads/main",
+    "expected_ref": "refs/heads/main",
+    "expected_environment": "pypi",
+    "publish_workflow": ".github/workflows/pypi-publish.yml",
+    "publish_repository_url": "https://upload.pypi.org/legacy/",
+    "production_authorization_required": true,
+    "production_publish_default": "REFUSE"
+  },
+  "forbidden_until_claims_match": [
+    "dispatch_pypi_publish",
+    "manual_token_publish",
+    "long_lived_api_token_publish",
+    "production_publish_without_testpypi_live_rehearsal",
+    "production_publish_without_authorization_file",
+    "production_publish_without_deadman_gate"
+  ]
+}
