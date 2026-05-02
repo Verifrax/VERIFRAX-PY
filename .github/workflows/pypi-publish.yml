@@ -28,18 +28,17 @@ jobs:
       - run: python scripts/check-release-artifact-digest-replay-boundary.py
       - run: python scripts/check-v010-release-admissibility-closure-boundary.py
       - run: python scripts/check-no-publish-final-readiness-ledger.py
-      - run: python scripts/check-production-pypi-publish-authorization-boundary.py
       - run: python scripts/check-production-pypi-publish-deadman-boundary.py
       - run: python scripts/check-pypi-trusted-publisher-readiness-seal.py
       - run: python scripts/check-publish-workflow-order-lock-boundary.py
+
+      - run: python scripts/create-production-pypi-publish-runtime-authorization.py
+      - run: python scripts/check-production-pypi-publish-authorization-boundary.py
 
       - run: python -m build
 
       - run: python scripts/check-v010-release-admissibility-closure-boundary.py
       - run: python scripts/check-production-pypi-publish-authorization-boundary.py
-      - run: python scripts/check-production-pypi-publish-deadman-boundary.py
-      - run: python scripts/check-pypi-trusted-publisher-readiness-seal.py
-      - run: python scripts/check-publish-workflow-order-lock-boundary.py
 
       - uses: pypa/gh-action-pypi-publish@release/v1
         with:
