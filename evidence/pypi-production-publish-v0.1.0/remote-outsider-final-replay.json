@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "gate": "REMOTE_OUTSIDER_FINAL_REPLAY_WITNESS",
+  "package": "verifrax",
+  "version": "0.1.0",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "main_head_at_replay": "e07d2066096c6b34309b3253ff76ef917e6fb730",
+  "remote_main": "e07d2066096c6b34309b3253ff76ef917e6fb730",
+  "release_tag": "v0.1.0",
+  "release_tag_object": "195989f447582d27c963a872e3af5f9e36b9659b",
+  "release_tag_head": "3213f55eb3dccca1fcaf8dfdc508dc7030bc1fee",
+  "tag_is_annotated": true,
+  "tag_not_moved_to_post_seal_witness": true,
+  "pypi": {
+    "project_url": "https://pypi.org/project/verifrax/0.1.0/",
+    "files": {
+      "verifrax-0.1.0-py3-none-any.whl": {
+        "packagetype": "bdist_wheel",
+        "sha256": "5139065b0c4f3738bff6252f72bd2615b59efb9ad356d1e875311cb1d5ac5701",
+        "url": "https://files.pythonhosted.org/packages/a9/07/f3df26b37f0a1b75e9ebf4bf557aa2d6d67db7da2470989f70a4a5c82497/verifrax-0.1.0-py3-none-any.whl"
+      },
+      "verifrax-0.1.0.tar.gz": {
+        "packagetype": "sdist",
+        "sha256": "9a7675917708bbadcc740c4a078ed41c3642593eb9993db2dc60243da66ff3bd",
+        "url": "https://files.pythonhosted.org/packages/f1/57/fa948d6c673ae720b51c019bdee8c06bdf885ed0addc36fb7b0303a2f99b/verifrax-0.1.0.tar.gz"
+      }
+    }
+  },
+  "github_release": {
+    "isDraft": false,
+    "isPrerelease": false,
+    "name": "VERIFRAX-PY v0.1.0",
+    "publishedAt": "2026-05-02T11:12:22Z",
+    "tagName": "v0.1.0",
+    "targetCommitish": "main",
+    "url": "https://github.com/Verifrax/VERIFRAX-PY/releases/tag/v0.1.0"
+  },
+  "fresh_outsider_install": {
+    "status": "PASS",
+    "package": "verifrax",
+    "version": "0.1.0",
+    "installed_files": 37
+  },
+  "production_publish": "DONE",
+  "production_publish_state": "SEALED_ALREADY_PUBLISHED",
+  "same_version_publish_rerun_refused": true,
+  "no_publish_executed": true
+}
