@@ -93,5 +93,16 @@
     "do_not_publish": true,
     "duplicate_upload_refusal_active": true,
     "production_publish_blocked_if_version_exists": true
+  },
+  "publish_workflow_order_lock_boundary": {
+    "status": "REQUIRED",
+    "gate": "scripts/check-publish-workflow-order-lock-boundary.py",
+    "policy": "PUBLISH_WORKFLOW_ORDER_LOCK.json",
+    "do_not_publish": true,
+    "publish_default": "REFUSE",
+    "token_publish_forbidden": true,
+    "skip_existing_forbidden": true,
+    "authorization_before_publish": true,
+    "deadman_before_publish": true
   }
 }
