@@ -37,5 +37,12 @@
     "gate": "scripts/check-release-artifact-digest-replay-boundary.py",
     "policy": "RELEASE_ARTIFACT_DIGEST_BOUNDARY.json",
     "do_not_publish": true
+  },
+  "no_publish_final_readiness_ledger": {
+    "status": "REQUIRED",
+    "gate": "scripts/check-no-publish-final-readiness-ledger.py",
+    "ledger": "NO_PUBLISH_FINAL_READINESS_LEDGER.json",
+    "do_not_publish": true,
+    "publish_default": "REFUSE"
   }
 }
