@@ -30,7 +30,8 @@
     "production_pypi_publish_authorization_required": true,
     "testpypi_live_rehearsal_proof_required": true,
     "production_publish_default_refuse": true,
-    "external_trusted_publisher_claim_lock_required": true
+    "external_trusted_publisher_claim_lock_required": true,
+    "release_artifact_digest_replay_required": true
   },
   "forbidden": [
     "manual_password_publish",
@@ -69,5 +70,11 @@
       "path": "EXTERNAL_TRUSTED_PUBLISHER_CLAIMS.json",
       "gate": "scripts/check-external-trusted-publisher-claim-lock-boundary.py"
     }
+  },
+  "release_artifact_digest_replay_boundary": {
+    "status": "REQUIRED",
+    "gate": "scripts/check-release-artifact-digest-replay-boundary.py",
+    "policy": "RELEASE_ARTIFACT_DIGEST_BOUNDARY.json",
+    "do_not_publish": true
   }
 }
