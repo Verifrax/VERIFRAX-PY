@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "gate": "PRODUCTION_PYPI_V010_POST_SEAL_MAIN_WITNESS",
+  "package": "verifrax",
+  "version": "0.1.0",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "main_head": "b6ad0ce983e881bdc4195f63fb2b759916d4cce4",
+  "release_tag": "v0.1.0",
+  "release_tag_head": "3213f55eb3dccca1fcaf8dfdc508dc7030bc1fee",
+  "tag_not_moved_to_post_seal_fix": true,
+  "pypi": {
+    "files": [
+      {
+        "filename": "verifrax-0.1.0-py3-none-any.whl",
+        "packagetype": "bdist_wheel",
+        "sha256": "5139065b0c4f3738bff6252f72bd2615b59efb9ad356d1e875311cb1d5ac5701",
+        "url": "https://files.pythonhosted.org/packages/a9/07/f3df26b37f0a1b75e9ebf4bf557aa2d6d67db7da2470989f70a4a5c82497/verifrax-0.1.0-py3-none-any.whl"
+      },
+      {
+        "filename": "verifrax-0.1.0.tar.gz",
+        "packagetype": "sdist",
+        "sha256": "9a7675917708bbadcc740c4a078ed41c3642593eb9993db2dc60243da66ff3bd",
+        "url": "https://files.pythonhosted.org/packages/f1/57/fa948d6c673ae720b51c019bdee8c06bdf885ed0addc36fb7b0303a2f99b/verifrax-0.1.0.tar.gz"
+      }
+    ],
+    "project_url": "https://pypi.org/project/verifrax/0.1.0/"
+  },
+  "github_release": {
+    "isDraft": false,
+    "isPrerelease": false,
+    "name": "VERIFRAX-PY v0.1.0",
+    "publishedAt": "2026-05-02T11:12:22Z",
+    "tagName": "v0.1.0",
+    "targetCommitish": "main",
+    "url": "https://github.com/Verifrax/VERIFRAX-PY/releases/tag/v0.1.0"
+  },
+  "main_check_runs": [
+    {
+      "conclusion": "success",
+      "createdAt": "2026-05-02T11:33:36Z",
+      "databaseId": 25250963094,
+      "headSha": "b6ad0ce983e881bdc4195f63fb2b759916d4cce4",
+      "name": "test",
+      "status": "completed",
+      "updatedAt": "2026-05-02T11:33:51Z",
+      "url": "https://github.com/Verifrax/VERIFRAX-PY/actions/runs/25250963094"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-05-02T11:33:36Z",
+      "databaseId": 25250963101,
+      "headSha": "b6ad0ce983e881bdc4195f63fb2b759916d4cce4",
+      "name": "external-trusted-publisher-claim-lock-boundary",
+      "status": "completed",
+      "updatedAt": "2026-05-02T11:33:53Z",
+      "url": "https://github.com/Verifrax/VERIFRAX-PY/actions/runs/25250963101"
+    }
+  ],
+  "production_publish": "DONE",
+  "production_publish_state": "SEALED_ALREADY_PUBLISHED",
+  "post_seal_repair_merged": true,
+  "same_version_publish_rerun_refused": true,
+  "no_publish_executed": true
+}
