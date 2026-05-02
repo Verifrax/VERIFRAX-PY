@@ -1,0 +1,35 @@
+{
+  "schema": "verifrax.python.publish-workflow-order-lock.v1",
+  "status": "NO_PUBLISH_WORKFLOW_ORDER_LOCK_ACTIVE",
+  "package": "verifrax",
+  "version": "0.1.0",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "do_not_publish": true,
+  "publish_default": "REFUSE",
+  "production_workflow": ".github/workflows/pypi-publish.yml",
+  "testpypi_workflow": ".github/workflows/testpypi-publish.yml",
+  "required_before_build": [
+    "scripts/check-version-immutability-index-refusal-boundary.py",
+    "scripts/check-external-trusted-publisher-claim-lock-boundary.py",
+    "scripts/check-production-pypi-publish-authorization-boundary.py"
+  ],
+  "required_before_publish": [
+    "scripts/check-production-pypi-publish-authorization-boundary.py",
+    "scripts/check-production-pypi-publish-deadman-boundary.py",
+    "scripts/check-pypi-trusted-publisher-readiness-seal.py"
+  ],
+  "forbidden_publish_semantics": [
+    "skip-existing: true",
+    "password:",
+    "TWINE_PASSWORD",
+    "api-token",
+    "manual_token_publish"
+  ],
+  "required_publish_semantics": [
+    "workflow_dispatch:",
+    "environment: pypi",
+    "repository-url: https://upload.pypi.org/legacy/",
+    "attestations: true"
+  ],
+  "no_publish_executed": true
+}

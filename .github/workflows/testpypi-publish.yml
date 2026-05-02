@@ -13,16 +13,34 @@ jobs:
     environment: testpypi
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e ".[test,build]"
+
       - run: pytest -q
-      - run: python scripts/check-v010-release-admissibility-closure-boundary.py
-      - run: python scripts/check-pypi-trusted-publisher-readiness-seal.py
+
+      - run: python scripts/check-release-candidate-attestation-readiness-boundary.py
       - run: python scripts/check-testpypi-rehearsal-attestation-boundary.py
+      - run: python scripts/check-version-immutability-index-refusal-boundary.py
+      - run: python scripts/check-external-trusted-publisher-claim-lock-boundary.py
+      - run: python scripts/check-release-artifact-digest-replay-boundary.py
+      - run: python scripts/check-pypi-trusted-publisher-readiness-seal.py
+      - run: python scripts/check-v010-release-admissibility-closure-boundary.py
+
       - run: python -m build
+
+      - run: python scripts/check-pypi-trusted-publisher-readiness-seal.py
+      - run: python scripts/check-release-candidate-attestation-readiness-boundary.py
+      - run: python scripts/check-testpypi-rehearsal-attestation-boundary.py
+      - run: python scripts/check-v010-release-admissibility-closure-boundary.py
+
       - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           repository-url: https://test.pypi.org/legacy/
+          attestations: true
+          print-hash: true
+          verbose: true
