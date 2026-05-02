@@ -1,0 +1,33 @@
+{
+  "schema": "verifrax.python.version-immutability-index-refusal.v1",
+  "status": "NO_PUBLISH_INDEX_VERSION_REFUSAL_READY",
+  "package": "verifrax",
+  "version": "0.1.0",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "do_not_publish": true,
+  "publish_default": "REFUSE",
+  "immutable_indices": {
+    "testpypi": {
+      "simple_index": "https://test.pypi.org/simple/verifrax/",
+      "version_may_exist_after_live_rehearsal": true,
+      "refuse_duplicate_upload": true
+    },
+    "pypi": {
+      "simple_index": "https://pypi.org/simple/verifrax/",
+      "version_must_not_exist_before_production_publish": true,
+      "refuse_duplicate_upload": true
+    }
+  },
+  "required_refusals": [
+    "PYPI_VERSION_ALREADY_EXISTS",
+    "TESTPYPI_VERSION_ALREADY_EXISTS_WITHOUT_REHEARSAL_RECORD",
+    "INDEX_LOOKUP_FAILED",
+    "PRODUCTION_PYPI_AUTHORIZATION_MISSING"
+  ],
+  "forbidden": [
+    "overwrite_existing_distribution",
+    "skip_existing_publish",
+    "blind_publish_without_index_probe",
+    "production_publish_when_version_exists"
+  ]
+}

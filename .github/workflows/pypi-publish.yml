@@ -24,6 +24,7 @@ jobs:
       - run: python scripts/check-testpypi-rehearsal-attestation-boundary.py
       - run: python scripts/check-pypi-custody-attestation-release-gate.py
       - run: python scripts/check-distribution-installation-replay-proof.py
-      - run: python scripts/check-production-pypi-publish-authorization-boundary.py
+      - run: python scripts/check-version-immutability-index-refusal-boundary.py
+          python scripts/check-production-pypi-publish-authorization-boundary.py
       - run: python -m build
       - uses: pypa/gh-action-pypi-publish@release/v1
