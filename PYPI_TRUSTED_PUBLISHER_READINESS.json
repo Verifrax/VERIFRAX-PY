@@ -46,7 +46,8 @@
     "production_publish_default_refuse": true,
     "external_claim_lock_required": true,
     "release_artifact_digest_replay_required": true,
-    "no_publish_final_readiness_ledger_required": true
+    "no_publish_final_readiness_ledger_required": true,
+    "version_immutability_index_refusal_required": true
   },
   "production_publish_deadman": {
     "status": "ACTIVE",
@@ -75,5 +76,13 @@
     "ledger": "NO_PUBLISH_FINAL_READINESS_LEDGER.json",
     "do_not_publish": true,
     "publish_default": "REFUSE"
+  },
+  "version_immutability_index_refusal_boundary": {
+    "status": "REQUIRED",
+    "gate": "scripts/check-version-immutability-index-refusal-boundary.py",
+    "policy": "VERSION_IMMUTABILITY_INDEX_REFUSAL.json",
+    "do_not_publish": true,
+    "duplicate_upload_refusal_active": true,
+    "production_publish_blocked_if_version_exists": true
   }
 }

@@ -21,7 +21,8 @@
     "PYPI_TRUSTED_PUBLISHER_READINESS_SEAL",
     "PRODUCTION_PYPI_PUBLISH_DEADMAN_BOUNDARY",
     "EXTERNAL_TRUSTED_PUBLISHER_CLAIM_LOCK_BOUNDARY",
-    "RELEASE_ARTIFACT_DIGEST_REPLAY_BOUNDARY"
+    "RELEASE_ARTIFACT_DIGEST_REPLAY_BOUNDARY",
+    "VERSION_IMMUTABILITY_INDEX_REFUSAL_BOUNDARY"
   ],
   "external_requirements": {
     "testpypi_pending_trusted_publisher": {
@@ -47,6 +48,17 @@
     "production_dispatch_before_authorization_file",
     "manual_token_publish",
     "twine_upload",
-    "long_lived_api_token_publish"
-  ]
+    "long_lived_api_token_publish",
+    "blind_publish_without_index_probe",
+    "production_publish_when_version_exists",
+    "skip_existing_publish"
+  ],
+  "version_immutability_index_refusal_boundary": {
+    "status": "REQUIRED",
+    "gate": "scripts/check-version-immutability-index-refusal-boundary.py",
+    "policy": "VERSION_IMMUTABILITY_INDEX_REFUSAL.json",
+    "do_not_publish": true,
+    "duplicate_upload_refusal_active": true,
+    "production_publish_blocked_if_version_exists": true
+  }
 }
