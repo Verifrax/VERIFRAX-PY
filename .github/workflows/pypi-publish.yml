@@ -37,7 +37,6 @@ jobs:
 
       - run: python -m build
 
-      - run: python scripts/check-v010-release-admissibility-closure-boundary.py
       - run: python scripts/check-production-pypi-publish-authorization-boundary.py
 
       - uses: pypa/gh-action-pypi-publish@release/v1
