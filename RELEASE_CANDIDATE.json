@@ -63,5 +63,13 @@
     "skip_existing_forbidden": true,
     "authorization_before_publish": true,
     "deadman_before_publish": true
+  },
+  "cold_clone_no_publish_replay_boundary": {
+    "gate": "COLD_CLONE_NO_PUBLISH_REPLAY_BOUNDARY",
+    "status": "PASS_BOUNDARY",
+    "do_not_publish": true,
+    "publish_default": "REFUSE",
+    "replay_mode": "git_index_tree_archive_to_fresh_tempdir",
+    "isolated_venv": true
   }
 }
