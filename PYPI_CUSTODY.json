@@ -112,5 +112,14 @@
     "publish_default": "REFUSE",
     "replay_mode": "git_index_tree_archive_to_fresh_tempdir",
     "isolated_venv": true
+  },
+  "cold_clone_tar_filter_warning_free_boundary": {
+    "gate": "COLD_CLONE_TAR_FILTER_WARNING_FREE_BOUNDARY",
+    "status": "PASS_BOUNDARY",
+    "do_not_publish": true,
+    "publish_default": "REFUSE",
+    "tar_extract_filter": "data",
+    "python_314_deprecation_warning_refusal": true,
+    "no_publish_executed": true
   }
 }
