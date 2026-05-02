@@ -40,7 +40,7 @@ with tempfile.TemporaryDirectory(prefix="verifrax-py-cold-replay-") as td:
         run(["git", "archive", "--format=tar", tree], cwd=ROOT, stdout=fh)
 
     with tarfile.open(archive) as tf:
-        tf.extractall(work)
+        tf.extractall(work, filter="data")
 
     py = sys.executable
     run([py, "-m", "compileall", "-q", "src", "tests", "scripts"], cwd=work)
