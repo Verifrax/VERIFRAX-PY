@@ -1,0 +1,52 @@
+{
+  "schema": "verifrax.python.no-publish-final-readiness-ledger.v1",
+  "status": "REPO_SIDE_READY_NO_PUBLISH",
+  "package": "verifrax",
+  "version": "0.1.0",
+  "source_repo": "Verifrax/VERIFRAX-PY",
+  "do_not_publish": true,
+  "publish_default": "REFUSE",
+  "production_publish_state": "REFUSED_BY_DESIGN",
+  "production_refusal": "PRODUCTION_PYPI_AUTHORIZATION_MISSING",
+  "required_gates": [
+    "API_MACHINE_CONTRACT_REPLAY_BOUNDARY",
+    "RECEIPT_VERDICT_PROJECTION_REPLAY_BOUNDARY",
+    "TERMINAL_NONRECOGNITION_NONRECOURSE_GUARD",
+    "PYPI_CUSTODY_ATTESTATION_RELEASE_GATE",
+    "DISTRIBUTION_INSTALLATION_REPLAY_PROOF",
+    "PYTEST_WARNING_FREE_RELEASE_GATE",
+    "RELEASE_CANDIDATE_ATTESTATION_READINESS_BOUNDARY",
+    "TESTPYPI_REHEARSAL_ATTESTATION_BOUNDARY",
+    "V010_RELEASE_ADMISSIBILITY_CLOSURE_BOUNDARY",
+    "PYPI_TRUSTED_PUBLISHER_READINESS_SEAL",
+    "PRODUCTION_PYPI_PUBLISH_DEADMAN_BOUNDARY",
+    "EXTERNAL_TRUSTED_PUBLISHER_CLAIM_LOCK_BOUNDARY",
+    "RELEASE_ARTIFACT_DIGEST_REPLAY_BOUNDARY"
+  ],
+  "external_requirements": {
+    "testpypi_pending_trusted_publisher": {
+      "project_name": "verifrax",
+      "owner": "Verifrax",
+      "repository": "VERIFRAX-PY",
+      "workflow_filename": "testpypi-publish.yml",
+      "environment": "testpypi"
+    },
+    "pypi_pending_trusted_publisher": {
+      "project_name": "verifrax",
+      "owner": "Verifrax",
+      "repository": "VERIFRAX-PY",
+      "workflow_filename": "pypi-publish.yml",
+      "environment": "pypi"
+    },
+    "testpypi_live_rehearsal_required": true,
+    "production_authorization_required": true
+  },
+  "forbidden_until_external_requirements_satisfied": [
+    "testpypi_dispatch_before_pending_trusted_publisher_exists",
+    "production_dispatch_before_testpypi_live_rehearsal",
+    "production_dispatch_before_authorization_file",
+    "manual_token_publish",
+    "twine_upload",
+    "long_lived_api_token_publish"
+  ]
+}
