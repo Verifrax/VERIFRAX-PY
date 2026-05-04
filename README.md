@@ -61,3 +61,11 @@ It explicitly does not bind as law, accepted state, authority, execution, recogn
 ## License
 
 Apache License Version 2.0.
+
+## Admission status
+
+VERIFRAX-PY is part of the public VERIFRAX implementation/package perimeter.
+
+It is an implementation boundary only.
+
+It does not define law, accepted state, authority, governed execution, proof publication, public verification truth, terminal recognition, terminal recourse, or package sovereignty.
